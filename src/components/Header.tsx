@@ -54,12 +54,12 @@ export default function Header() {
               >
                 App starten
               </Link>
-              <button
-                onClick={handleSignOut}
+              <Link
+                href="/account"
                 className="text-sm text-gray-400 transition hover:text-white"
               >
-                Abmelden
-              </button>
+                Mein Konto
+              </Link>
             </>
           ) : (
             <>
@@ -108,12 +108,13 @@ export default function Header() {
                 >
                   App starten
                 </Link>
-                <button
-                  onClick={handleSignOut}
-                  className="text-sm text-gray-400 text-left"
+                <Link
+                  href="/account"
+                  className="text-sm text-gray-400"
+                  onClick={() => setMenuOpen(false)}
                 >
-                  Abmelden
-                </button>
+                  Mein Konto
+                </Link>
               </>
             ) : (
               <>

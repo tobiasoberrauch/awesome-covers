@@ -33,8 +33,11 @@ export async function middleware(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  // Protect /app routes — redirect to login if not authenticated
-  if (request.nextUrl.pathname.startsWith("/app") && !user) {
+  // Protect /app and /account routes — redirect to login if not authenticated
+  const isProtected =
+    request.nextUrl.pathname.startsWith("/app") ||
+    request.nextUrl.pathname.startsWith("/account");
+  if (isProtected && !user) {
     const loginUrl = new URL("/auth/login", request.url);
     loginUrl.searchParams.set("redirect", request.nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
@@ -51,5 +54,5 @@ export async function middleware(request: NextRequest) {
 }
 
 export const config = {
-  matcher: ["/app/:path*", "/auth/:path*"],
+  matcher: ["/app/:path*", "/account/:path*", "/auth/:path*"],
 };

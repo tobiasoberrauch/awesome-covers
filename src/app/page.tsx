@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowRight, Zap, Clock, Share2, Shield, Music, Sparkles } from "lucide-react";
+import { ArrowRight, Zap, Clock, Share2, Shield, Sparkles } from "lucide-react";
 import WaitlistForm from "@/components/WaitlistForm";
 import PricingCards from "@/components/PricingCards";
 import { GENRES } from "@/lib/constants";
@@ -217,30 +217,6 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="border-t border-white/5">
-        <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6">
-          <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
-            <div className="flex items-center gap-2 text-sm text-gray-500">
-              <div className="flex h-6 w-6 items-center justify-center rounded bg-brand-600">
-                <Zap className="h-3.5 w-3.5 text-white" />
-              </div>
-              GenreFlip
-            </div>
-            <div className="flex gap-6 text-sm text-gray-500">
-              <Link href="/pricing" className="hover:text-gray-300">
-                Preise
-              </Link>
-              <a href="mailto:hello@genreflip.de" className="hover:text-gray-300">
-                Kontakt
-              </a>
-            </div>
-            <p className="text-xs text-gray-600">
-              &copy; {new Date().getFullYear()} GenreFlip. Alle Rechte vorbehalten.
-            </p>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 }
